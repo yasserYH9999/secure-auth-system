@@ -1,0 +1,55 @@
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Nyasser00@
+      MYSQL_DATABASE: security_monitoring
+    ports:
+      - "3307:3306"
+    volumes:
+    - ./mysql-init:/docker-entrypoint-initdb.d
+
+  app1:
+    build: .
+    environment:
+      - APP_NAME=app1
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=Nyasser00@
+      - DB_NAME=security_monitoring
+    depends_on:
+      - mysql
+    ports:
+      - "3001:3000"
+
+  app2:
+    build: .
+    environment:
+      - APP_NAME=app2
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=Nyasser00@
+      - DB_NAME=security_monitoring
+    depends_on:
+      - mysql
+    ports:
+      - "3002:3000"
+
+  app3:
+    build: .
+    environment:
+      - APP_NAME=app3
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=Nyasser00@
+      - DB_NAME=security_monitoring
+    depends_on:
+      - mysql
+    ports:
+      - "3003:3000"
