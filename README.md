@@ -14,7 +14,7 @@ Perfect for integration into **e-commerce**, **SaaS**, **dashboards**, or **cust
 ## 🚀 Features
 
 - 📧 Email/password authentication with bcrypt hashing
-- 🌍 OAuth 2.0 login (Google, Facebook)
+- 🌍 OAuth 2.0 login (Google)
 - 🧠 Admin panel at `/admin` powered by AdminJS
 - 🔐 Secure session-based authentication
 - 🛡️ Security best practices (Helmet, CSP, input validation)
